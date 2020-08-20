@@ -46,3 +46,8 @@ resource "aws_security_group" "allow-ssh-dev" {
   }
 }
 
+
+#terraform plan -var ENV=dev (for plan of dev)
+#terraform apply -var ENV=dev (for dev environment)
+#terraform apply -var ENV=prod  (for prod)
+#terraform apply (for prod as prod is default)

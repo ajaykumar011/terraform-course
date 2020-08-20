@@ -21,7 +21,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
   }
 
   filter {
@@ -81,3 +81,5 @@ resource "aws_key_pair" "mykeypair" {
   public_key = file("${path.root}/${var.PATH_TO_PUBLIC_KEY}")
 }
 
+# terraform init will be done inside the folders of both dev and prod not from outside
+# terraform plan and apply also same as above

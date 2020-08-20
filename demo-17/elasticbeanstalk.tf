@@ -6,7 +6,16 @@ resource "aws_elastic_beanstalk_application" "app" {
 resource "aws_elastic_beanstalk_environment" "app-prod" {
   name                = "app-prod"
   application         = aws_elastic_beanstalk_application.app.name
-  solution_stack_name = "64bit Amazon Linux 2018.03 v2.9.6 running PHP 7.3"
+  #solution_stack_name = "64bit Amazon Linux 2018.03 v2.9.6 running PHP 7.3"
+  # to get the solution stack. we need to 'aws configure'  install eb tools..
+  # pip install awsebcli --upgrade –user (to install / upgrade)
+  # pip uninstall awsebcli (to uninstall)
+
+  #I created a elastic beanstalk application manually (AWS console). And then used AWS CLI to get the environment information -
+  #aws elasticbeanstalk describe-environments --application-name php-demo --region ap-south-1
+
+  solution_stack_name = "64bit Amazon Linux 2 v3.1.0 running PHP 7.3"
+
   setting {
     namespace = "aws:ec2:vpc"
     name      = "VPCId"

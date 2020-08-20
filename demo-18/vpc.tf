@@ -1,3 +1,5 @@
+#we are creating 2 vpc from module terraform-aws-modules/vpc/aws. One for prod and other for dev
+#https://github.com/terraform-aws-modules
 module "vpc-prod" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "2.5.0"
@@ -38,3 +40,8 @@ module "vpc-dev" {
   }
 }
 
+
+#terraform plan -var ENV=dev (for plan of dev)
+#terraform apply -var ENV=dev (for dev environment)
+#terraform apply -var ENV=prod  (for prod)
+#terraform apply (for prod as prod is default)

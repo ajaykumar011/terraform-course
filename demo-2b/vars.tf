@@ -1,3 +1,6 @@
+
+#Access keys are defined here but not value not assigned
+#values are assigned in terraform.tfvars file.
 variable "AWS_ACCESS_KEY" {
 }
 
@@ -5,18 +8,20 @@ variable "AWS_SECRET_KEY" {
 }
 
 variable "AWS_REGION" {
-  default = "eu-west-1"
+  default = "ap-south-1"
 }
 
-variable "WIN_AMIS" {
+#Map variables for AMIS defined here
+variable "AMIS" {
   type = map(string)
   default = {
-    us-east-1 = "ami-30540427"
-    us-west-2 = "ami-9f5efbff"
-    eu-west-1 = "ami-7ac78809"
+    us-east-1 = "ami-107d3e61"
+    ap-south-1 = "ami-02b5fbc2cb28b77b8"
+    eu-west-1 = "ami-044f36cc778038e81"
   }
 }
 
+#Key variables and Instance username defined here
 variable "PATH_TO_PRIVATE_KEY" {
   default = "mykey"
 }
@@ -26,9 +31,6 @@ variable "PATH_TO_PUBLIC_KEY" {
 }
 
 variable "INSTANCE_USERNAME" {
-  default = "Terraform"
-}
-
-variable "INSTANCE_PASSWORD" {
+  default = "ubuntu"
 }
 

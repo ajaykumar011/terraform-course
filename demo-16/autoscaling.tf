@@ -15,10 +15,10 @@ resource "aws_autoscaling_group" "example-autoscaling" {
   vpc_zone_identifier       = [aws_subnet.main-public-1.id, aws_subnet.main-public-2.id]
   launch_configuration      = aws_launch_configuration.example-launchconfig.name
   min_size                  = 2
-  max_size                  = 2
+  max_size                  = 4
   health_check_grace_period = 300
-  health_check_type         = "ELB"
-  load_balancers            = [aws_elb.my-elb.name]
+  health_check_type         = "ELB"  #this is important 
+  load_balancers            = [aws_elb.my-elb.name]   #resource_type.resource_name.name_attribute(object)
   force_delete              = true
 
   tag {
@@ -28,3 +28,6 @@ resource "aws_autoscaling_group" "example-autoscaling" {
   }
 }
 
+#Other methods (except ab tools) to increase CPU Load
+# $ sudo apt-get update && sudo apt-get install stress
+# $ sudo stress --cpu 2 --timeout 600

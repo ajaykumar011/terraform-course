@@ -12,8 +12,9 @@ resource "aws_instance" "example" {
   key_name = aws_key_pair.mykeypair.key_name
 }
 
-resource "aws_ebs_volume" "ebs-volume-1" {
-  availability_zone = "eu-west-1a"
+# EBS Section which is declared outside.
+resource "aws_ebs_volume" "ebs-volume-1" {  # A separate Volume 
+  availability_zone = "ap-south-1a"
   size              = 20
   type              = "gp2"
   tags = {
@@ -21,9 +22,9 @@ resource "aws_ebs_volume" "ebs-volume-1" {
   }
 }
 
-resource "aws_volume_attachment" "ebs-volume-1-attachment" {
+resource "aws_volume_attachment" "ebs-volume-1-attachment" {  #Volumne_attachment with instance 
   device_name = "/dev/xvdh"
-  volume_id   = aws_ebs_volume.ebs-volume-1.id
+  volume_id   = aws_ebs_volume.ebs-volume-1.id    
   instance_id = aws_instance.example.id
 }
 

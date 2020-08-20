@@ -16,9 +16,9 @@ resource "aws_elb" "my-elb" {
     interval            = 30
   }
 
-  cross_zone_load_balancing   = true
+  cross_zone_load_balancing   = true  #distribute traffic across zones
   connection_draining         = true
-  connection_draining_timeout = 400
+  connection_draining_timeout = 400    #seconds to drain all active connections before termination of instance
   tags = {
     Name = "my-elb"
   }
