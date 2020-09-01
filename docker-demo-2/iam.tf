@@ -18,12 +18,13 @@ resource "aws_iam_role" "ecs-ec2-role" {
 EOF
 
 }
-
+#Instance profile
 resource "aws_iam_instance_profile" "ecs-ec2-role" {
   name = "ecs-ec2-role"
   role = aws_iam_role.ecs-ec2-role.name
 }
 
+#New IAM Role
 resource "aws_iam_role" "ecs-consul-server-role" {
   name = "ecs-consul-server-role"
   assume_role_policy = <<EOF
@@ -43,7 +44,7 @@ resource "aws_iam_role" "ecs-consul-server-role" {
 EOF
 
 }
-
+#IAM Role Policy
 resource "aws_iam_role_policy" "ecs-ec2-role-policy" {
 name   = "ecs-ec2-role-policy"
 role   = aws_iam_role.ecs-ec2-role.id

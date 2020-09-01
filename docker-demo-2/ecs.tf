@@ -1,8 +1,9 @@
-# cluster
+# cluster named 'example cluster'
 resource "aws_ecs_cluster" "example-cluster" {
   name = "example-cluster"
 }
 
+#Launch configuration
 resource "aws_launch_configuration" "ecs-example-launchconfig" {
   name_prefix          = "ecs-launchconfig"
   image_id             = var.ECS_AMIS[var.AWS_REGION]
@@ -15,7 +16,7 @@ resource "aws_launch_configuration" "ecs-example-launchconfig" {
     create_before_destroy = true
   }
 }
-
+#ASG from above Launch config  named 'ecs-example-launchconfig'
 resource "aws_autoscaling_group" "ecs-example-autoscaling" {
   name                 = "ecs-example-autoscaling"
   vpc_zone_identifier  = [aws_subnet.main-public-1.id, aws_subnet.main-public-2.id]

@@ -1,5 +1,5 @@
 variable "AWS_REGION" {
-  default = "us-east-1"
+  default = "ap-south-1"
 }
 
 variable "PATH_TO_PRIVATE_KEY" {
@@ -17,7 +17,7 @@ variable "ECS_INSTANCE_TYPE" {
 variable "ECS_AMIS" {
   type = map(string)
   default = {
-    us-east-1 = "ami-1924770e"
+    ap-south-1 = "ami-00c556d64c0320b38"
     us-west-2 = "ami-56ed4936"
     eu-west-1 = "ami-c8337dbb"
   }

@@ -1,0 +1,6 @@
+Running the command
+G:\terraform-course\codepipeline-demo (master -> origin)
+λ terraform init
+
+
+

@@ -1,5 +1,5 @@
 # app
-
+# template file resource where task defination is picked up
 data "template_file" "myapp-task-definition-template" {
   template = file("templates/app.json.tpl")
   vars = {
@@ -7,11 +7,13 @@ data "template_file" "myapp-task-definition-template" {
   }
 }
 
+#task defination resource from above template file
 resource "aws_ecs_task_definition" "myapp-task-definition" {
   family                = "myapp"
   container_definitions = data.template_file.myapp-task-definition-template.rendered
 }
 
+# Alb resource
 resource "aws_elb" "myapp-elb" {
   name = "myapp-elb"
 
@@ -43,6 +45,7 @@ resource "aws_elb" "myapp-elb" {
   }
 }
 
+# ECS Service with ELB, TD
 resource "aws_ecs_service" "myapp-service" {
   name            = "myapp"
   cluster         = aws_ecs_cluster.example-cluster.id
