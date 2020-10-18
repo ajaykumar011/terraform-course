@@ -11,5 +11,5 @@ and put some codes there which is copied from
 
 https://github.com/wardviaene/docker-demo
 
-you may need to create IAM special user's credentials for codecommit account
-and add to repository. once done you may build ECR image which is used in ECS.
+you may need to create IAM special user's credentials for codecommit account and add to repository. 
+once done you may build ECR image which is used in this example for  ECS.

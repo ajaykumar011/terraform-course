@@ -1,6 +1,5 @@
-#
 # kms
-#
+
 data "aws_iam_policy_document" "demo-artifacts-kms-policy" {
   policy_id = "key-default-1"
   statement {
