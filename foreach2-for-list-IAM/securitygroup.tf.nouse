@@ -1,5 +1,5 @@
-resource "aws_security_group" "example" {
-  name = "example" # can use expressions here
+resource "aws_security_group" "sgexample" {
+  name = "sgexample" # can use expressions here
 
   dynamic "ingress" {
     for_each = [22, 443]
@@ -10,3 +10,4 @@ resource "aws_security_group" "example" {
     }
   }
 }
+//This actually not working fully.
